@@ -19,9 +19,9 @@ export class PerfilPage implements OnInit {
     this.get();
   }
 
-
   get(): void {
     this.id = this.route.snapshot.paramMap.get('key');
     this.produto$ = this.produtoService.get(this.id);
   }
+
 }

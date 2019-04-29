@@ -11,7 +11,7 @@ export class ProdutoService {
   constructor(private db: AngularFireDatabase) { }
 
   get(id: string) {
-    return this.db.object('/produto/' + id).valueChanges();
+    return this.db.object<Produto>('/produto/' + id).valueChanges();
   }
 
   insert(produto: Produto) {
@@ -46,4 +46,6 @@ export class ProdutoService {
         console.error(error);
       });
   }
+
+  
 }

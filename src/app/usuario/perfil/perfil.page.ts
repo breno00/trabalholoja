@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 import { Usuario } from "../usuario";
 import { UsuarioService } from "../usuario.service";
 import { AlertController } from "@ionic/angular";
+import { ProdutoService } from '../../produto/produto.service';
 
 @Component({
   selector: "app-perfil",
@@ -15,7 +16,8 @@ export class PerfilPage implements OnInit {
   constructor(
     private alertController: AlertController,
     private camera: Camera,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private produtoService: ProdutoService
   ) {}
 
   ngOnInit() {
@@ -44,5 +46,9 @@ export class PerfilPage implements OnInit {
         // Handle error
       }
     );
+  }
+
+  delete(key: string) {
+    this.produtoService.delete(key);
   }
 }

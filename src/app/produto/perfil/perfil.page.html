@@ -9,6 +9,14 @@
 
 <ion-content *ngIf="produto$ | async as produto">
   <ion-item>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let c of produto.foto">
+        <img src="{{ c }}" alt="" />
+      </ion-slide>
+    </ion-slides>
+  </ion-item>
+
+  <ion-item>
     <ion-label position="floating">Nome: </ion-label>
     <ion-text> {{ produto.nome }} </ion-text>
   </ion-item>
@@ -28,16 +36,12 @@
     <ion-text> {{ produto.valor }} </ion-text>
   </ion-item>
 
-  <ion-button color="tertiary" shape="round">
-    <ion-icon name="trash"></ion-icon>
-  </ion-button>
-
-  <ion-item *ngFor="let c of preview" lines="none">
-    <img src="{{ c }}" alt="" />
+  <ion-item lines="none">
+    <ion-button color="tertiary" shape="round" slot="end" [routerLink]="[ '/edit', id ]">
+      <ion-icon name="create"></ion-icon>
+    </ion-button>
+    <ion-button color="tertiary" shape="round">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
   </ion-item>
-
-  <ion-slides pager="true" [options]="slideOpts">
-      <ion-slide *ngFor="let c of foto">
-      </ion-slide>
-    </ion-slides>
 </ion-content>
