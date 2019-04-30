@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
   styleUrls: ['./edit.page.scss'],
 })
 export class EditPage implements OnInit {
-  private produto$: Observable<any>;
+
   id: string;
   produto: Produto = new Produto;
 
@@ -27,13 +27,15 @@ export class EditPage implements OnInit {
     this.produtoService.get(this.id).subscribe(
       res => {
         this.produto = res
+        console.log(this.produto);
       }
     );
   }
 
   onSubmit() {
     this.produtoService.update(this.produto, this.id);
-    this.router.navigate(["/"]);
+    console.log(this.produto);
+    //this.router.navigate(["/"]);
   };
 
   async getPhoto() {

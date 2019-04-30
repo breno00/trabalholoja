@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <form #fc="ngForm" (ngSubmit)="onSubmit(fc)">
+  <form #fc="ngForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">Nome</ion-label>
       <ion-input type="text" class="form-control" [(ngModel)]="produto.nome" name="nome" required></ion-input>
